@@ -34,8 +34,9 @@ Objectif: Retrouver les profils verticaux de chlorophylle-a à partir des mesure
 | RNN+SOM | 0.0677 | 0.0060 | 0.1498 | 0.0630 | 0.0065 | 0.1359 |
 | RNN+Décodeur | 0.0618 | 0.0036 | 0.1406 | 0.0552 | 0.0034 | 0.1263 | 
 
-Ce tableau représente une synthèse des résultats de performance sur l’ensemble de test, soit les données des années 2006-2008. Ainsi que les performances sur l’année 2008 seulement pour pouvoir comparer avec les résultats de la thèse de A.A Charantonis traitant la même problématique [1]
 
-[1] Charantonis A, Badran F, Thiria S, 2012, Retrieving the vertical profiles of Chlorophyll-A from satellite observations, by using hidden Markov models and self-organizing maps. JAOT, submitted
+Ce tableau représente une synthèse des résultats de performance sur l’ensemble de test, soit les données des années 2006-2008. Ainsi que les performances sur l’année 2008 seulement pour pouvoir comparer avec les résultats de la thèse de A.A Charantonis traitant la même problématique [1].
+
+[1] Charantonis A, Badran F, Thiria S, 2012, Retrieving the vertical profiles of Chlorophyll-A from satellite observations, by using hidden Markov models and self-organizing maps. JAOT, submitted.
 
 
