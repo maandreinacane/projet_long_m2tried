@@ -18,17 +18,6 @@ from keras.callbacks import EarlyStopping
 from sklearn.metrics import mean_squared_error
 
 #------------------------------------------------------------------------------
-# Read files
-#------------------------------------------------------------------------------
-
-# Read File
-nemo = np.load('/usr/home/mcane/Documents/Data/VectSorted.npy')
-depth = sio.loadmat('/usr/home/mcane/Documents/Data/VectLB19922008.mat')['depth'][0:16]
-
-# Input Normalization
-nemo = lib.norm(nemo,-1,1)
-
-#------------------------------------------------------------------------------
 # Sliding window transformation
 #------------------------------------------------------------------------------
 
@@ -65,6 +54,17 @@ def sliding_window_inv(data):
             tmp_flat[i,j] = np.nanmedian(tmp[:,i,j])
     tmp_flat[np.isnan(tmp_flat)] = 0            
     return tmp, tmp_flat
+
+#------------------------------------------------------------------------------
+# Read files
+#------------------------------------------------------------------------------
+
+# Read File
+nemo = np.load('/usr/home/mcane/Documents/Data/VectSorted.npy')
+depth = sio.loadmat('/usr/home/mcane/Documents/Data/VectLB19922008.mat')['depth'][0:16]
+
+# Input Normalization
+nemo = lib.norm(nemo,-1,1)
 
 #----------------------------------------------------------------------
 # Training 
