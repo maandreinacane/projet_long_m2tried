@@ -19,3 +19,9 @@ Objectif: Retrouver les profils verticaux de chlorophylle-a à partir des mesure
 + Réseau Récurrent Bidirectionnel (BiRNN)
 + BiRNN + Cartes Auto-organisatrices (SOM)
 + BiRNN + Decodeur
+
+# Analyse des Performances:
+| Command | Description |
+| --- | --- |
+| git status | List all new or modified files |
+| git diff | Show file differences that haven't been staged |
