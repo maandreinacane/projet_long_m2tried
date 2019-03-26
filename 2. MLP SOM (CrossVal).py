@@ -17,19 +17,6 @@ from keras.callbacks import EarlyStopping
 
 from sklearn.metrics import mean_squared_error
 
-#----------------------------------------------------------------------
-# Clear the Screen
-#----------------------------------------------------------------------
-cls = lambda: print('\n'*50)
-cls()
-plt.close('all') 
-
-#------------------------------------------------------------------------------
-# Warnings
-#------------------------------------------------------------------------------
-import warnings
-warnings.filterwarnings("ignore",category=DeprecationWarning)
-
 # -----------------------------------------------------------------------------
 # Transformation
 # -----------------------------------------------------------------------------
@@ -60,6 +47,7 @@ SOM_labels   = sio.loadmat('/usr/home/mcane/Documents/Data/SOMout.mat')['SOM_lab
 SOM_xy_coord = sio.loadmat('/usr/home/mcane/Documents/Data/SOMout.mat')['SOM_xy_coord']
 SOM_lab2xy   = sio.loadmat('/usr/home/mcane/Documents/Data/SOMout.mat')['SOM_lab2xy']
 
+# Input Normalization
 nemo = lib.norm(nemo,-1,1)
 
 #----------------------------------------------------------------------
@@ -128,10 +116,4 @@ for i in range(yearini,yearfin+1):
     scores_mse.append(mse)
     scores_rms.append(np.sqrt(mse))
     
-    print("\nloss: sqrt(%.5f) = %.4f" % (mse, np.sqrt(mse))) 
-    
-    break
-    
-print("/n/n")      
-for sc in range(0,np.shape(scores_mse)[0]): print(scores_mse[sc])
-for sc in range(0,np.shape(scores_rms)[0]): print(scores_rms[sc])    
+    print("\nloss: sqrt(%.5f) = %.4f" % (mse, np.sqrt(mse)))         
