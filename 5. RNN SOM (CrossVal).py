@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-GRU M2M SOM (CrossVal)
+RNN Many-to-Many SOM (CrossVal)
 """
 
 import library as lib
@@ -16,19 +16,6 @@ from keras.optimizers import Adam
 from keras.callbacks import EarlyStopping
 
 from sklearn.metrics import mean_squared_error
-
-#------------------------------------------------------------------------------
-# Clear the Screen
-#------------------------------------------------------------------------------
-cls = lambda: print('\n'*50)
-cls()
-plt.close('all') 
-
-#------------------------------------------------------------------------------
-# Warnings
-#------------------------------------------------------------------------------
-import warnings
-warnings.filterwarnings("ignore",category=DeprecationWarning)
 
 #------------------------------------------------------------------------------
 # Transformations
@@ -94,6 +81,7 @@ SOM_labels   = sio.loadmat('/usr/home/mcane/Documents/Data/SOMout_v3.mat')['SOM_
 SOM_xy_coord = sio.loadmat('/usr/home/mcane/Documents/Data/SOMout_v3.mat')['SOM_xy_coord']
 SOM_lab2xy   = sio.loadmat('/usr/home/mcane/Documents/Data/SOMout_v3.mat')['SOM_lab2xy']
 
+# Input Normalization
 nemo = lib.norm(nemo,-1,1)
 
 #----------------------------------------------------------------------
@@ -129,8 +117,7 @@ for i in range(yearini,yearfin+1):
     # Model
     model = Sequential()
     model.add(InputLayer(input_shape=(n_steps,n_var_in)))
-    model.add(Bidirectional(GRU(64, return_sequences=True)))
-    model.add(Bidirectional(GRU(64, return_sequences=True)))
+    model.add(Bidirectional(GRU(128, return_sequences=True)))
     model.add(TimeDistributed(Dense(n_var_out, activation='linear')))
     model.summary()
     
@@ -157,17 +144,3 @@ for i in range(yearini,yearfin+1):
     scores_rms.append(np.sqrt(mse))
     
     print("\nloss: sqrt(%.5f) = %.4f" % (mse, np.sqrt(mse)))           
-
-    # Prediction
-    Y_pred = model.predict(X_test)
-    y_pred_som = sliding_window_inv(Y_pred)
-    y_pred = SOM2proflog10(y_pred_som, SOM_lab2xy, SOM_codebook) 
-    
-    mse = mean_squared_error(np.power(10,y_test), np.power(10,y_pred))
-    scores_mse.append(mse)
-    scores_rms.append(np.sqrt(mse))
-    
-    print("\nloss: sqrt(%.5f) = %.4f" % (mse, np.sqrt(mse)))    
-        
-print("\n",scores_mse)
-print("\n",scores_rms)
