@@ -2,5 +2,6 @@
 Maria CANE – Lydia CHIBANE
 
 Projet Long fait au sein du laboratoire LOCEAN encadré par Mr AA. Charantonis. 
+
 Objectif: Retrouver les profils verticaux de chlorophylle-a à partir des mesures satellitaires sur la surface de l'océan.
 
