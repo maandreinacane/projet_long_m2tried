@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-GRU Many-to-Many (CrossVal)
+RNN Many-to-Many (CrossVal)
 """
 
 import library as lib
@@ -18,19 +18,6 @@ from keras.callbacks import EarlyStopping
 from sklearn.metrics import mean_squared_error
 
 #------------------------------------------------------------------------------
-# Clear the Screen
-#------------------------------------------------------------------------------
-cls = lambda: print('\n'*50)
-cls()
-plt.close('all') 
-
-#------------------------------------------------------------------------------
-# Warnings
-#------------------------------------------------------------------------------
-import warnings
-warnings.filterwarnings("ignore",category=DeprecationWarning)
-
-#------------------------------------------------------------------------------
 # Read files
 #------------------------------------------------------------------------------
 
@@ -38,6 +25,7 @@ warnings.filterwarnings("ignore",category=DeprecationWarning)
 nemo = np.load('/usr/home/mcane/Documents/Data/VectSorted.npy')
 depth = sio.loadmat('/usr/home/mcane/Documents/Data/VectLB19922008.mat')['depth'][0:16]
 
+# Input Normalization
 nemo = lib.norm(nemo,-1,1)
 
 #------------------------------------------------------------------------------
