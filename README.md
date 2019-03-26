@@ -23,3 +23,4 @@ Objectif: Retrouver les profils verticaux de chlorophylle-a à partir des mesure
 # Analyse des Performances:
 | Méthodes | RMS | Min | Max | RMS | Min | Max |
 | --- | --- | --- | --- | --- | --- | --- |
+| Référence Thèse | --- | --- | --- |0.0303|0.0076|0.0310|
