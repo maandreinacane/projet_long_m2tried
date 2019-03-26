@@ -26,7 +26,7 @@ Objectif: Retrouver les profils verticaux de chlorophylle-a à partir des mesure
 # Analyse des Performances:
 | Méthodes | RMS (2006-8) | Min (2006-8) | Max (2006-8) | RMS (2008) | Min (2008) | Max (2008) |
 | --- | --- | --- | --- | --- | --- | --- |
-| PROFHMM | | | | 0.0303 | 0.0076 | 0.0310 |
+| PROFHMM [1]| | | | 0.0303 | 0.0076 | 0.0310 |
 | PMC | 0.0644 | 0.0078 | 0.1459 | 0.0511 | 0.0087 | 0.1049 |
 | PMC+SOM | 0.0659 | 0.0056 | 0.1403 | 0.0587 | 0.0065 | 0.1243 | 
 | PMC+Décodeur | 0.0659 | 0.0056 | 0.1403 | 0.0587 | 0.0065 | 0.1243 | 
