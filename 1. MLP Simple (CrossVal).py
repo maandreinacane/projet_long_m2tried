@@ -18,19 +18,6 @@ from keras.callbacks import EarlyStopping
 from sklearn.metrics import mean_squared_error
 
 #----------------------------------------------------------------------
-# Clear the Screen
-#----------------------------------------------------------------------
-cls = lambda: print('\n'*50)
-cls()
-plt.close('all') 
-
-#------------------------------------------------------------------------------
-# Warnings
-#------------------------------------------------------------------------------
-import warnings
-warnings.filterwarnings("ignore",category=DeprecationWarning)
-
-#----------------------------------------------------------------------
 # Read files
 #----------------------------------------------------------------------
 
@@ -38,6 +25,7 @@ warnings.filterwarnings("ignore",category=DeprecationWarning)
 nemo = np.load('/usr/home/mcane/Documents/Data/VectSorted.npy')
 depth = sio.loadmat('/usr/home/mcane/Documents/Data/VectLB19922008.mat')['depth'][0:16]
 
+# Input Normalization
 nemo = lib.norm(nemo,-1,1)
 
 #----------------------------------------------------------------------
@@ -81,7 +69,7 @@ for i in range(yearini,yearfin+1):
     adam = Adam(lr=0.001)
     model.compile(optimizer=adam, loss='mse')    
     
-    earlyStopping=EarlyStopping(monitor='val_loss', patience=50, verbose=1, mode='auto')
+    earlyStopping=EarlyStopping(monitor='val_loss', patience=10, verbose=1, mode='auto')
     training = model.fit(x_train, y_train,
                          validation_data=(x_val,y_val),
                          batch_size=batch_size, epochs=nb_epoch,
@@ -90,7 +78,7 @@ for i in range(yearini,yearfin+1):
     adam = Adam(lr=0.00001)
     model.compile(optimizer=adam, loss='mse')    
     
-    earlyStopping=EarlyStopping(monitor='val_loss', patience=200, verbose=1, mode='auto')
+    earlyStopping=EarlyStopping(monitor='val_loss', patience=10, verbose=1, mode='auto')
     training = model.fit(x_train, y_train,
                          validation_data=(x_val,y_val),
                          batch_size=batch_size, epochs=nb_epoch,
