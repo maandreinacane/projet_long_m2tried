@@ -21,7 +21,5 @@ Objectif: Retrouver les profils verticaux de chlorophylle-a à partir des mesure
 + BiRNN + Decodeur
 
 # Analyse des Performances:
-| Command | Description |
-| --- | --- |
-| git status | List all new or modified files |
-| git diff | Show file differences that haven't been staged |
+| Méthodes | RMS | Min | Max | RMS | Min | Max |
+| --- | --- | --- | --- | --- | --- | --- |
