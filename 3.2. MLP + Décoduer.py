@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Mar  4 12:34:29 2019
-
-@author: lchibane
-
 réseau avec couches dense et décodeur 
 entrée : les données de surface
 sortie: les profils verticaux de la chlorophylle
